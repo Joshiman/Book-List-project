@@ -105,6 +105,8 @@ class store {
             }
 
         });
+        //alert('Are you sure you want to delet it')
+
 
         localStorage.setItem('books', JSON.stringify(books));
     }
@@ -114,6 +116,7 @@ class store {
 
 document.addEventListener('DOMContentLoaded',
     store.displayBook);
+
 
 // Event Listeners for adding a book 
 
@@ -166,6 +169,7 @@ document.getElementById('book-list').addEventListener('click',
         // Remove from LocalStorge
         store.removeBook(e.target.parentElement.previousElementSibling.textContent);
 
+
         // show message 
         ui.showAlert('Book Removed', 'success');
 
@@ -173,3 +177,23 @@ document.getElementById('book-list').addEventListener('click',
         e.preventDefault();
 
     })
+
+// Textl color for dark body color
+const hh = document.getElementsByTagName('h1')
+hh[0].style.color = "#fff";
+
+const lab = document.getElementsByTagName('label')
+for (var i = 0; i < lab.length; i++) {
+    lab[i].style.color = '#f4f4f4';
+}
+
+var submit = document.querySelector('input[type="submit"]');
+submit.style.color = "#fff"
+
+const th = document.getElementsByTagName('th');
+for (var i = 0; i < th.length; i++) {
+    th[i].style.color = '#f4f4f4';
+}
+
+const newbook = document.getElementById("book-list");
+newbook.style.color = '#fff'
