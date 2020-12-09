@@ -122,6 +122,9 @@ document.addEventListener('DOMContentLoaded',
 
 document.getElementById('book-form').addEventListener('submit',
     function (e) {
+
+        e.preventDefault();
+
         // Get from  values
         const title = document.getElementById('title').value,
             author = document.getElementById('author').value,
@@ -150,10 +153,17 @@ document.getElementById('book-form').addEventListener('submit',
             // clear filed
             ui.clearFileds();
         }
+        // Duplicated ISBN
+        const isDuplicateISBN = store.getBooks().some(function (bookInStorage) {
+            return bookInStorage.isbn === book.isbn
+        })
+
+        if (isDuplicateISBN) {
+            return ui.showAlert('Check ISBN, duplicate book ', 'error')
+        }
 
 
-
-        e.preventDefault();
+        // e.preventDefault();
     });
 
 
